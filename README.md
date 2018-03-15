@@ -9,10 +9,13 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app 
 ## Docker Commands
 
 `docker build -t zmad5306/k8s-web:latest .`
+
 `docker push zmad5306/k8s-web:latest`
 
 ## Kubernetes Commands
 
 `kubectl delete deployment k8s-web-deployment`
+
 `kubectl apply -f k8s/deploy.yml`
+
 `kubectl apply -f k8s/svc.yml`
