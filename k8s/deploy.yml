@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-web-deployment
+  labels:
+    app: k8s-web
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: k8s-web
+  template:
+    metadata:
+      labels:
+        app: k8s-web
+        version: "1.0.0"
+    spec:
+      containers:
+      - name: k8s-web
+        image: zmad5306/k8s-web:latest
+        ports:
+        - containerPort: 80
