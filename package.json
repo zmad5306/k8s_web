@@ -8,7 +8,10 @@
     "build": "ng build --deploy-url /web/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "predeployDockerImage": "npm run build",
+    "deployDockerImage": "docker build -t zmad5306/k8s-web:latest . && docker push zmad5306/k8s-web:latest",
+    "deployk8s": "kubectl delete deployment k8s-web-deployment && kubectl apply -f k8s/deploy.yml"
   },
   "private": true,
   "dependencies": {
