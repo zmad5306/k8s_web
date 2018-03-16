@@ -5,7 +5,7 @@ metadata:
   labels:
     app: k8s-web
 spec:
-  replicas: 3
+  replicas: 1
   minReadySeconds: 10
   strategy:
     type: RollingUpdate
